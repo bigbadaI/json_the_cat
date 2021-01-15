@@ -19,7 +19,9 @@ const fetchBreedDescription = function(breedName, callback) {
     if (data.length === 0) {
       return callback(Error("Sorry no data on " + breedName + " please check spelling"), null);
     }
-    callback(null, data[0].description);
+    if (data.length > 0) {
+      callback(null, data[0].description);
+    }
   });
   
 };
